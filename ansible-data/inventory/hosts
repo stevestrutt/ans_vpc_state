@@ -1,0 +1,2 @@
+ [servers]
+#app01 ansible_host=158.176.121.165 ansible_user=root
