@@ -14,9 +14,9 @@ resource "null_resource" "null01" {
       playbook = {
         file_path = "${path.module}/ansible-data/playbooks/install-tree.yml"
 
-        # roles_path = [
-        #   "${path.module}/ansible-data/roles",
-        #]
+        roles_path = [
+          "${path.module}/ansible-data/roles",
+        ]
       }
 
       #inventory_file = "${path.module}/ansible-data/inventory"
