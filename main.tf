@@ -1,8 +1,4 @@
 resource "null_resource" "null01" {
-  triggers = {
-    always_run = "${timestamp()}"
-  }
-
   connection {
     bastion_host = "52.116.140.31"
     host         = "172.22.192.8"
@@ -12,6 +8,10 @@ resource "null_resource" "null01" {
 
   provisioner "remote-exec" {
     script = "list.sh"
+  }
+
+  triggers = {
+    always_run = "${timestamp()}"
   }
 
   provisioner "ansible" {
