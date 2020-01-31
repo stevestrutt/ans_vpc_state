@@ -5,6 +5,10 @@ resource "null_resource" "null01" {
     private_key = "${var.ssh_private_key}"
   }
 
+  provisioner "remote-exec" {
+    script = "ls -al"
+  }
+
   provisioner "ansible" {
     plays {
       playbook = {
