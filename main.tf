@@ -27,3 +27,7 @@ resource "null_resource" "null01" {
 variable "insecure_no_strict_host_key_checking" {
   default = false
 }
+
+variable "ssh_private_key" {
+  description = "private ssh key"
+}
