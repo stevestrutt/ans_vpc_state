@@ -16,7 +16,7 @@ resource "null_resource" "null01" {
 
         # roles_path = [
         #   "${path.module}/ansible-data/roles",
-        ]
+        #]
       }
 
       #inventory_file = "${path.module}/ansible-data/inventory"
