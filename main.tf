@@ -1,8 +1,9 @@
 resource "null_resource" "null01" {
   connection {
-    host        = "52.116.140.31"
-    user        = "root"
-    private_key = "${var.ssh_private_key}"
+    bastion_host = "52.116.140.31"
+    host         = "172.22.192.8"
+    user         = "root"
+    private_key  = "${var.ssh_private_key}"
   }
 
   provisioner "remote-exec" {
