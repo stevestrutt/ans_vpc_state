@@ -6,7 +6,7 @@ resource "null_resource" "null01" {
   }
 
   provisioner "remote-exec" {
-    script = "ls -al"
+    script = "list.sh"
   }
 
   provisioner "ansible" {
