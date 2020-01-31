@@ -1,6 +1,0 @@
----
-
-- hosts: webserver
-  become: yes
-  roles:
-    - tree
