@@ -1,9 +1,10 @@
 resource "null_resource" "null01" {
   connection {
-    #bastion_host = "52.116.140.31"
-    host = "52.116.140.31"
+    bastion_host = "52.116.140.31"
 
-    #host         = "172.22.192.8"
+    #host = "52.116.140.31"
+
+    host        = "172.22.192.8"
     user        = "root"
     private_key = "${var.ssh_private_key}"
   }
