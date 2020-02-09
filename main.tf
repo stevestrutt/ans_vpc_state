@@ -4,11 +4,12 @@ resource "null_resource" "null01" {
 
     #host = "52.116.140.31"
 
-    host        = "172.22.192.6"
-    user        = "root"
-    private_key = "${file("~/.ssh/ansible")}"
+    host = "172.22.192.6"
+    user = "root"
 
-    #private_key = "${var.ssh_private_key}"
+    #private_key = "${file("~/.ssh/ansible")}"
+
+    private_key = "${var.ssh_private_key}"
   }
 
   provisioner "remote-exec" {
