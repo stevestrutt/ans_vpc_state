@@ -17,8 +17,10 @@ locals {
 }
 
 
-resource "local_exec" "ls" {
-  command = "ls -al ; pwd"
+resource "null_resource" "ls" {
+  provisioner "local-exec" {
+    command = "ls -al ; pwd"
+  }
 }
 
 resource "local_file" "ips" {
