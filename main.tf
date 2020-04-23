@@ -33,7 +33,8 @@ resource "null_resource" "ansible" {
 
     #bastion_host_key = "${file("~/.ssh/ansible")}"
 
-    private_key = "${file("~/.ssh/ansible")}"
+    #private_key = "${file("~/.ssh/ansible")}"
+    private_key = var.ssh_private_key
   }
 
   triggers = {
@@ -57,6 +58,9 @@ resource "null_resource" "ansible" {
       connect_timeout_seconds              = 60
     }
   }
+}
+
+variable "ssh_private_key" {
 }
 
 variable "insecure_no_strict_host_key_checking" {
