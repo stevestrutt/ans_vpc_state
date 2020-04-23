@@ -23,10 +23,10 @@ resource "null_resource" "ls" {
   }
 }
 
-resource "local_file" "ips" {
-  filename = "${path.module}/ansible-data/inventory"
-  content  = local.inventory_file
-}
+# resource "local_file" "ips" {
+#   filename = "${path.module}/ansible-data/inventory"
+#   content  = local.inventory_file
+# }
 
 
 
