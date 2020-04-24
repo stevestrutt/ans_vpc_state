@@ -22,7 +22,7 @@ resource "null_resource" "ls" {
     always_run = timestamp()
   }
   provisioner "local-exec" {
-    command = "cat ${path.module}/ansible-data/inventory"
+    command = "cat ${path.module}/ansible-data/inventory.txt"
   }
 }
 
@@ -31,19 +31,19 @@ output "file" {
 }
 
 output "file_read" {
-  value = local.inventory_file_read
+  value = data.local_file.input
 }
 
-locals {
-  inventory_file_read = file("${path.module}/ansible-data/inventory")
-}
 
 
 resource "local_file" "ips" {
-  filename = "${path.module}/ansible-data/inventory"
+  filename = "${path.module}/ansible-data/inventory.txt"
   content  = local.inventory_file
 }
 
+data "local_file" "input" {
+  filename = "${path.module}/ansible-data/inventory.txt"
+}
 
 
 resource "null_resource" "ls1" {
@@ -51,7 +51,7 @@ resource "null_resource" "ls1" {
     always_run = timestamp()
   }
   provisioner "local-exec" {
-    command = "ls -al ${path.module}/ansible-data/inventory"
+    command = "ls -al ${path.module}/ansible-data/inventory.txt"
   }
   depends_on = [local_file.ips]
 }
