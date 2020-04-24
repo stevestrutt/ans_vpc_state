@@ -89,11 +89,11 @@ variable "bastion_host" {
 variable "frontend_hosts" {
   type        = list(list(string))
   description = "List of private IP addresses of target hosts"
-  default     = [["host1", "172.16.2.12"], ["host0", "172.16.2.12"]]
+  default     = [["host1", "172.16.2.12"], ["host2", "172.16.2.13"]]
 }
 
 variable "backend_hosts" {
   type        = list(string)
   description = "List of private IP addresses of target hosts"
-  default     = ["host3", "172.17.0.10"]
+  default     = ["host4", "172.17.0.10"]
 }
