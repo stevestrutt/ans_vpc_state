@@ -31,10 +31,20 @@ output "file" {
 }
 
 
-# resource "local_file" "ips" {
-#   filename = "${path.module}/ansible-data/inventory"
-#   content  = local.inventory_file
-# }
+resource "local_file" "ips" {
+  filename = "${path.module}/ansible-data/inventory"
+  content  = local.inventory_file
+}
+
+
+resource "null_resource" "ls" {
+  triggers = {
+    always_run = timestamp()
+  }
+  provisioner "local-exec" {
+    command = "ls -al ${path.module}/ansible-data/inventory; pwd"
+  }
+}
 
 
 
@@ -93,7 +103,7 @@ variable "frontend_hosts" {
 }
 
 variable "backend_hosts" {
-  #type        = list(string)
+  type        = string
   description = "List of private IP addresses of target hosts"
   default     = ["host4", "172.17.0.10"]
 }
