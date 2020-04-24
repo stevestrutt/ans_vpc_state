@@ -93,7 +93,7 @@ variable "frontend_hosts" {
 }
 
 variable "backend_hosts" {
-  type        = list(string)
+  #type        = list(string)
   description = "List of private IP addresses of target hosts"
   default     = ["host4", "172.17.0.10"]
 }
