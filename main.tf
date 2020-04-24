@@ -5,12 +5,12 @@ locals {
   inventory_file = <<-EOT
 
     [frontend]
-    %{for ip in tolist(var.frontend_hosts)~}
+    %{for ip in var.frontend_hosts~}
     ${ip[0]} ansible_host=${ip[1]}
     %{endfor}
 
     [backend]
-    %{for ip in tolist(var.backend_hosts)~}
+    %{for ip in var.backend_hosts~}
     ${ip[0]} ansible_host=${ip[1]} 
     %{endfor}
   EOT
