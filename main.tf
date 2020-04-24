@@ -30,6 +30,14 @@ output "file" {
   value = local.inventory_file
 }
 
+output "file_read" {
+  value = local.inventory_file_read
+}
+
+locals {
+  inventory_file_read = file("${path.module}/ansible-data/inventory")
+}
+
 
 resource "local_file" "ips" {
   filename = "${path.module}/ansible-data/inventory"
@@ -57,6 +65,8 @@ resource "null_resource" "ls1" {
   }
   depends_on = [local_file.ips]
 }
+
+
 
 
 # resource "null_resource" "ansible" {
