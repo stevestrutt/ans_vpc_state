@@ -42,10 +42,7 @@ output "file" {
 resource "local_file" "ips" {
   filename = "${path.module}/ansible-data/inventory"
   content  = local.inventory_file
-  triggers = {
-    always_run = timestamp()
 }
-
 
 
 
