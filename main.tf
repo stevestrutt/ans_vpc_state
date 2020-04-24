@@ -42,7 +42,8 @@ resource "local_file" "ips" {
 }
 
 data "local_file" "input" {
-  filename = "${path.module}/ansible-data/inventory.txt"
+  filename   = "${path.module}/ansible-data/inventory.txt"
+  depends_on = [local_file.ips]
 }
 
 
