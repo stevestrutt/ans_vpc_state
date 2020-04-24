@@ -17,22 +17,22 @@ locals {
 }
 
 
-resource "null_resource" "ls" {
-  triggers = {
-    always_run = timestamp()
-  }
-  provisioner "local-exec" {
-    command = "cat ${path.module}/ansible-data/inventory.txt"
-  }
-}
+# resource "null_resource" "ls" {
+#   triggers = {
+#     always_run = timestamp()
+#   }
+#   provisioner "local-exec" {
+#     command = "cat ${path.module}/ansible-data/inventory.txt"
+#   }
+# }
 
-output "file" {
-  value = local.inventory_file
-}
+# output "file" {
+#   value = local.inventory_file
+# }
 
-output "file_read" {
-  value = data.local_file.input
-}
+# output "file_read" {
+#   value = data.local_file.input
+# }
 
 
 
@@ -41,21 +41,21 @@ resource "local_file" "ips" {
   content  = local.inventory_file
 }
 
-data "local_file" "input" {
-  filename   = "${path.module}/ansible-data/inventory.txt"
-  depends_on = [local_file.ips]
-}
+# data "local_file" "input" {
+#   filename   = "${path.module}/ansible-data/inventory.txt"
+#   depends_on = [local_file.ips]
+# }
 
 
-resource "null_resource" "ls1" {
-  triggers = {
-    always_run = timestamp()
-  }
-  provisioner "local-exec" {
-    command = "ls -al ${path.module}/ansible-data/inventory.txt"
-  }
-  depends_on = [local_file.ips]
-}
+# resource "null_resource" "ls1" {
+#   triggers = {
+#     always_run = timestamp()
+#   }
+#   provisioner "local-exec" {
+#     command = "ls -al ${path.module}/ansible-data/inventory.txt"
+#   }
+#   depends_on = [local_file.ips]
+# }
 
 
 
