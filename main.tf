@@ -44,9 +44,19 @@ resource "null_resource" "ls2" {
   provisioner "local-exec" {
     command = "ls -al ${path.module}/ansible-data/inventory"
   }
-  depend_on = 
+  depends_on = [null_resource.ansible]
 }
 
+
+resource "null_resource" "ls1" {
+  triggers = {
+    always_run = timestamp()
+  }
+  provisioner "local-exec" {
+    command = "ls -al ${path.module}/ansible-data/inventory"
+  }
+  depends_on = [local_file.ips]
+}
 
 
 resource "null_resource" "ansible" {
