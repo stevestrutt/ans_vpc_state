@@ -30,13 +30,13 @@ output "file" {
   value = local.inventory_file
 }
 
-# output "file_read" {
-#   value = local.inventory_file_read
-# }
+output "file_read" {
+  value = local.inventory_file_read
+}
 
-# locals {
-#   inventory_file_read = file("${path.module}/ansible-data/inventory")
-# }
+locals {
+  inventory_file_read = file("${path.module}/ansible-data/inventory")
+}
 
 
 resource "local_file" "ips" {
