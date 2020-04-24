@@ -60,41 +60,42 @@ resource "null_resource" "ls1" {
 
 
 
-# resource "null_resource" "ansible" {
-#   connection {
-#     bastion_host = var.bastion_host
+resource "null_resource" "ansible" {
+  connection {
+    bastion_host = var.bastion_host
 
-#     host = "172.16.2.11"
-#     #user = "root"
+    host = "172.16.2.11"
+    #user = "root"
 
-#     #bastion_host_key = "${file("~/.ssh/ansible")}"
+    #bastion_host_key = "${file("~/.ssh/ansible")}"
 
-#     #private_key = "${file("~/.ssh/ansible")}"
-#     private_key = var.ssh_private_key
-#   }
+    #private_key = "${file("~/.ssh/ansible")}"
+    private_key = var.ssh_private_key
+  }
 
-#   triggers = {
-#     always_run = timestamp()
-#   }
-#   provisioner "ansible" {
-#     plays {
-#       playbook {
-#         file_path = "${path.module}/ansible-data/playbooks/site.yml"
+  triggers = {
+    always_run = timestamp()
+  }
+  provisioner "ansible" {
+    plays {
+      playbook {
+        file_path = "${path.module}/ansible-data/playbooks/site.yml"
 
-#         roles_path = [
-#           "${path.module}/ansible-data/roles",
-#         ]
-#       }
-#       verbose = true
-#       #inventory_file = "${path.module}/ansible-data/inventory"
-#     }
+        roles_path = [
+          "${path.module}/ansible-data/roles",
+        ]
+      }
+      verbose        = true
+      inventory_file = "${path.module}/ansible-data/inventory.txt"
+    }
 
-#     ansible_ssh_settings {
-#       insecure_no_strict_host_key_checking = var.insecure_no_strict_host_key_checking
-#       connect_timeout_seconds              = 60
-#     }
-#   }
-# }
+    ansible_ssh_settings {
+      insecure_no_strict_host_key_checking = var.insecure_no_strict_host_key_checking
+      connect_timeout_seconds              = 60
+    }
+  }
+  depends_on = [local_file.ips]
+}
 
 variable "ssh_private_key" {
 }
