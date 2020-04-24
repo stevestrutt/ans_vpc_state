@@ -37,7 +37,7 @@ resource "local_file" "ips" {
 }
 
 
-resource "null_resource" "ls" {
+resource "null_resource" "ls2" {
   triggers = {
     always_run = timestamp()
   }
