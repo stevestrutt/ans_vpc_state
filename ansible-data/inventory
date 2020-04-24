@@ -1,9 +1,0 @@
-
-[frontend]
-    host0 ansible_host=172.16.2.12
-    host1 ansible_host=172.16.0.10
-
-
-[backend]
-    host3 ansible_host=172.17.0.10 
-
