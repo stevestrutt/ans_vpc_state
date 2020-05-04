@@ -106,17 +106,17 @@ variable "insecure_no_strict_host_key_checking" {
 
 variable "bastion_host" {
   description = "Bastion host public IP address"
-  default     = "52.116.128.158"
+  default     = "52.116.132.36"
 }
 
 variable "frontend_hosts" {
   type        = list(list(string))
   description = "List of private IP addresses of target hosts"
-  default     = [["host1", "172.16.0.11"], ["host2", "172.16.2.13"]]
+  default     = [["host1", "172.16.0.5"], ["host2", "172.16.2.5"]]
 }
 
 variable "backend_hosts" {
   type        = list(list(string))
   description = "List of private IP addresses of target hosts"
-  default     = [["host4", "172.17.0.11"]]
+  default     = [["host4", "172.17.0.4"]]
 }
