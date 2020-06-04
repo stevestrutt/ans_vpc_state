@@ -114,13 +114,13 @@ resource "null_resource" "ansible" {
   depends_on = [local_file.terraform_source_state]
 }
 
-# variable "ssh_private_key" {
-# }
-
-
-variable "ibmcloud_api_key" {
-  description = "IBM Cloud API key when run standalone"
+variable "ssh_private_key" {
 }
+
+
+# variable "ibmcloud_api_key" {
+#   description = "IBM Cloud API key when run standalone"
+# }
 
 variable "workspace_id" {
   description = "Id of the source Schematics Workspace for target VSIs"
