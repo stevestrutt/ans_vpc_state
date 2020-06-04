@@ -44,7 +44,6 @@ ti_version = '0.1'
 
 
 import json
-import configparser
 import os
 from os import getenv
 from collections import defaultdict
