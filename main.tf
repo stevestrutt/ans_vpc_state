@@ -86,8 +86,8 @@ resource "null_resource" "ansible" {
 
     #bastion_host_key = "${file("~/.ssh/ansible")}"
 
-    private_key = "${file("~/.ssh/ansible")}"
-    #private_key = var.ssh_private_key
+    #private_key = "${file("~/.ssh/ansible")}"
+    private_key = var.ssh_private_key
   }
 
   triggers = {
