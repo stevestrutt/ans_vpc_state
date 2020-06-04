@@ -79,7 +79,7 @@ output "vpc_bastions" {
 
 resource "null_resource" "ansible" {
   connection {
-    bastion_host = var.bastion_host
+    bastion_host = data.ibm_schematics_output.vpc.output_values["bastion_host_ip_address"]
 
     host = "0.0.0.0"
     #user = "root"
