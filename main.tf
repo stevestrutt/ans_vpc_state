@@ -118,9 +118,9 @@ resource "null_resource" "ansible" {
 # }
 
 
-# variable "ibmcloud_api_key" {
-#   description = "IBM Cloud API key when run standalone"
-# }
+variable "ibmcloud_api_key" {
+  description = "IBM Cloud API key when run standalone"
+}
 
 variable "workspace_id" {
   description = "Id of the source Schematics Workspace for target VSIs"
