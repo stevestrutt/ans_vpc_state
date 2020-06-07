@@ -140,10 +140,10 @@ class TerraformInventory:
                     #tag of form ans_group: xxxxxxx is used to define ansible host group
                     for value in list(attributes["tags"]):
                         try:
-                            curprefix, rest = value.split(":", 1)
+                            curprefix, rest = value.split(":", 2)
                         except ValueError:
                             continue
-                        if curprefix != "ans_group" :
+                        if curprefix != "schematics:group" :
                             continue  
                         group.append(rest)
 
