@@ -137,10 +137,13 @@ class TerraformInventory:
                     }
                 
   
-                    #tag of form ans_group: xxxxxxx is used to define ansible host group
+                    #tag of form ans_group: xxxxxxx is used to define ansible host group3
+                    sep = ":"
                     for value in list(attributes["tags"]):
                         try:
-                            curprefix, rest = value.split(":", 2)
+                            strng= value.split(sep)
+                            curprefix = sep.join(strng[:2])
+                            rest = sep.join(strng[2:])
                         except ValueError:
                             continue
                         if curprefix != "schematics:group" :
